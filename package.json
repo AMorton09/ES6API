@@ -1,0 +1,74 @@
+{
+  "name": "bndapi",
+  "version": "0.0.2",
+  "private": true,
+  "description": "API for mobile app",
+  "main": "server.js",
+  "homepage": "https://rootapi3.herokuapp.com",
+  "scripts": {
+    "build": "rm -rf ./bin/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
+    "clean": "rm -rf ./bin ./build ./dist ./dll ./node_modules ./yarn.lock ./package-lock.json",
+    "dev": "rm -rf /dll && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
+    "format": "prettier-standard 'src/**/*.js' && prettier-standard 'server/**/*.js' && prettier-standard 'package.json'",
+    "postinstall": "yarn run dev",
+    "postmerge": "yarn",
+    "precommit": "lint-staged",
+    "release": "standard-version",
+    "start": "rm -rf bin && cross-env NODE_ENV=development node-hot --config ./webpack.config.babel.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "case-sensitive-paths-webpack-plugin": "^2.1.1",
+    "chalk": "^2.3.0",
+    "cross-env": "^5.1.1",
+    "eslint": "^4.13.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "husky": "^0.14.3",
+    "jest": "^22.1.4",
+    "lint-staged": "^6.0.0",
+    "morgan": "^1.9.0",
+    "node-hot-loader": "^1.5.2",
+    "prettier": "^1.9.2",
+    "prettier-eslint": "^8.3.1",
+    "prettier-standard": "^7.0.1",
+    "standard-version": "^4.2.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.0",
+    "webpack-merge": "^4.1.1",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.12.4",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0",
+    "promise": "^8.0.1"
+  },
+  "repository": "https://github.com/jpizzitola/bndapi",
+  "authors": [
+    {
+      "name": "Andrew Morton",
+      "email": "morton09@me.com"
+    },
+    {
+      "name": "John Pizzitola",
+      "email": "heykid@fagland.com"
+    }
+  ],
+  "license": "NOLICENSE"
+}
